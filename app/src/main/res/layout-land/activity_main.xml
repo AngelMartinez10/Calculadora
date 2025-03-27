@@ -5,30 +5,29 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CACDD5"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/display"
         android:layout_width="411dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="114dp"
         android:layout_weight="1"
-        android:gravity="center|right"
-        android:text="0"
-        android:textSize="40dp"
+        android:text="TEXTO"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/display">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/tableRow"
@@ -57,8 +56,7 @@
             <Button
                 android:id="@+id/buttonClear"
                 android:layout_width="200dp"
-                android:layout_height="80dp"
-                android:backgroundTint="#494646"
+                android:layout_height="100dp"
                 android:text="CLEAR"
                 android:textColorLink="#673AB7"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -74,31 +72,24 @@
                 android:id="@+id/button15"
                 android:layout_width="105dp"
                 android:layout_height="100dp"
-                android:backgroundTint="#494646"
-                android:onClick="onClick"
                 android:text="7" />
 
             <Button
                 android:id="@+id/button16"
                 android:layout_width="105dp"
                 android:layout_height="100dp"
-                android:backgroundTint="#494646"
-                android:onClick="onClick"
                 android:text="8" />
 
             <Button
                 android:id="@+id/button17"
-                android:layout_width="104dp"
-                android:layout_height="match_parent"
-                android:backgroundTint="#494646"
-                android:onClick="onClick"
+                android:layout_width="105dp"
+                android:layout_height="100dp"
                 android:text="9" />
 
             <Button
                 android:id="@+id/buttonDiv"
                 android:layout_width="99dp"
                 android:layout_height="100dp"
-                android:backgroundTint="#808080"
                 android:text="/" />
         </TableRow>
 
@@ -110,31 +101,24 @@
                 android:id="@+id/button19"
                 android:layout_width="105dp"
                 android:layout_height="100dp"
-                android:backgroundTint="#494646"
-                android:onClick="onClick"
                 android:text="4" />
 
             <Button
                 android:id="@+id/button20"
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
-                android:backgroundTint="#494646"
-                android:onClick="onClick"
                 android:text="5" />
 
             <Button
                 android:id="@+id/button21"
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
-                android:backgroundTint="#494646"
-                android:onClick="onClick"
                 android:text="6" />
 
             <Button
                 android:id="@+id/buttonMult"
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
-                android:backgroundTint="#808080"
                 android:text="*" />
         </TableRow>
 
@@ -146,31 +130,24 @@
                 android:id="@+id/button23"
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
-                android:backgroundTint="#494646"
-                android:onClick="onClick"
                 android:text="1" />
 
             <Button
                 android:id="@+id/button24"
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
-                android:backgroundTint="#494646"
-                android:onClick="onClick"
                 android:text="2" />
 
             <Button
                 android:id="@+id/button25"
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
-                android:backgroundTint="#494646"
-                android:onClick="onClick"
                 android:text="3" />
 
             <Button
                 android:id="@+id/buttonMinus"
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
-                android:backgroundTint="#808080"
                 android:text="-" />
         </TableRow>
 
@@ -180,90 +157,28 @@
 
             <Button
                 android:id="@+id/buttonPoint"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="100dp"
-                android:backgroundTint="#494646"
                 android:text="." />
 
             <Button
                 android:id="@+id/button28"
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
-                android:backgroundTint="#494646"
-                android:onClick="onClick"
                 android:text="0" />
 
             <Button
                 android:id="@+id/buttonEquals"
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
-                android:backgroundTint="#494646"
                 android:text="=" />
 
             <Button
                 android:id="@+id/buttonPlus"
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
-                android:backgroundTint="#808080"
                 android:text="+" />
         </TableRow>
-
     </TableLayout>
-
-    <LinearLayout
-        android:layout_width="414dp"
-        android:layout_height="114dp"
-        android:layout_marginTop="8dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout">
-
-        <CheckBox
-            android:id="@+id/checkBox2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Mostrar opciones deshabilitar" />
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/radioButton16"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Suma" />
-
-                <RadioButton
-                    android:id="@+id/radioButton17"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Resta" />
-
-                <RadioButton
-                    android:id="@+id/radioButton18"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Multiplicación" />
-
-                <RadioButton
-                    android:id="@+id/radioButton19"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="División" />
-            </LinearLayout>
-        </RadioGroup>
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
