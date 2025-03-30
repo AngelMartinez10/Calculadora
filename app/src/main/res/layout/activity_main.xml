@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CACDD5"
+    android:background="#F5F5F5"
     tools:context=".MainActivity">
 
     <TextView
@@ -220,7 +220,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tableLayout">
 
         <CheckBox
-            android:id="@+id/checkBox2"
+            android:id="@+id/checkBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Mostrar opciones deshabilitar" />
@@ -235,28 +235,28 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radioButton16"
+                    android:id="@+id/radioPlus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Suma" />
 
                 <RadioButton
-                    android:id="@+id/radioButton17"
+                    android:id="@+id/radioMinus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Resta" />
 
                 <RadioButton
-                    android:id="@+id/radioButton18"
+                    android:id="@+id/radioMult"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Multiplicación" />
 
                 <RadioButton
-                    android:id="@+id/radioButton19"
+                    android:id="@+id/radioDiv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
