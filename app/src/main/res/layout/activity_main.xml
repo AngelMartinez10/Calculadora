@@ -226,42 +226,39 @@
             android:text="Mostrar opciones deshabilitar" />
 
         <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/radioPlus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Suma" />
 
-                <RadioButton
-                    android:id="@+id/radioPlus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Suma" />
+            <RadioButton
+                android:id="@+id/radioMinus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Resta" />
 
-                <RadioButton
-                    android:id="@+id/radioMinus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Resta" />
+            <RadioButton
+                android:id="@+id/radioMult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Multiplicación" />
 
-                <RadioButton
-                    android:id="@+id/radioMult"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Multiplicación" />
+            <RadioButton
+                android:id="@+id/radioDiv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="División" />
 
-                <RadioButton
-                    android:id="@+id/radioDiv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="División" />
-            </LinearLayout>
         </RadioGroup>
 
     </LinearLayout>

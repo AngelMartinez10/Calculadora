@@ -4,10 +4,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import model.Operador;
 
@@ -19,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private Operador operador;
     private Double operando;
     private CheckBox checkBox;
+    private RadioButton radioPlus, radioMinus, radioMult, radioDiv;
+    private RadioGroup radioGroup;
 
 
     @Override
@@ -36,7 +42,11 @@ public class MainActivity extends AppCompatActivity {
         buttonDiv = findViewById(R.id.buttonDiv);
         buttonPoint = findViewById(R.id.buttonPoint);
         checkBox = findViewById(R.id.checkBox);
-
+        radioPlus = findViewById(R.id.radioPlus);
+        radioMinus = findViewById(R.id.radioMinus);
+        radioMult = findViewById(R.id.radioMult);
+        radioDiv = findViewById(R.id.radioDiv);
+        radioGroup = findViewById(R.id.radioGroup);
 
         buttonClear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,6 +121,58 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        radioGroup.setVisibility(View.GONE);
+
+        checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkBox.isChecked()) {
+                    radioGroup.setVisibility(View.VISIBLE);
+                } else {
+                    radioGroup.setVisibility(View.GONE);
+                    buttonPlus.setEnabled(true);
+                    buttonMinus.setEnabled(true);
+                    buttonMult.setEnabled(true);
+                    buttonDiv.setEnabled(true);
+                }
+            }
+        });
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.radioPlus) {
+                    buttonPlus.setEnabled(false);
+                    buttonMinus.setEnabled(true);
+                    buttonMult.setEnabled(true);
+                    buttonDiv.setEnabled(true);
+                }
+                if (checkedId == R.id.radioMinus) {
+                    buttonPlus.setEnabled(true);
+                    buttonMinus.setEnabled(false);
+                    buttonMult.setEnabled(true);
+                    buttonDiv.setEnabled(true);
+                }
+                if (checkedId == R.id.radioMult) {
+                    buttonPlus.setEnabled(true);
+                    buttonMinus.setEnabled(true);
+                    buttonMult.setEnabled(false);
+                    buttonDiv.setEnabled(true);
+                }
+                if (checkedId == R.id.radioDiv) {
+                    buttonPlus.setEnabled(true);
+                    buttonMinus.setEnabled(true);
+                    buttonMult.setEnabled(true);
+                    buttonDiv.setEnabled(false);
+                }
+
+            }
+        });
+
+        if (savedInstanceState!=null){
+            display.setText(savedInstanceState.getString("display"));
+        }
+
     }
 
     public void onClick(View view){
@@ -119,5 +181,13 @@ public class MainActivity extends AppCompatActivity {
         else
             display.setText(display.getText().toString() + ((Button) view).getText());
     }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState){
+        super.onSaveInstanceState(outState);
+        outState.putString("display",display.getText().toString());
+
+    }
+
 
 }
