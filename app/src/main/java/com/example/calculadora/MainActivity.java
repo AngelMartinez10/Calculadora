@@ -1,5 +1,6 @@
 package com.example.calculadora;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -7,6 +8,7 @@ import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+        Context context = this;
 
         display = findViewById(R.id.display);
         buttonClear = findViewById(R.id.buttonClear);
@@ -103,21 +106,22 @@ public class MainActivity extends AppCompatActivity {
         buttonEquals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Double operando2 = Double.parseDouble(display.getText().toString());
-                Double resultado = 0.0;
-                if(operador == Operador.SUMA)
-                    resultado = operando + operando2;
-                else if (operador == Operador.RESTA)
-                    resultado = operando - operando2;
-                else if (operador == Operador.MULTIPLICACION)
-                    resultado = operando * operando2;
-                else if (operador == Operador.DIVISION){
-                    if (operando2 != 0)
-                        resultado = operando / operando2;
-                    else
-                        display.setText("Error");
-                }
-                display.setText(resultado.toString());
+                    Double operando2 = Double.parseDouble(display.getText().toString());
+                    Double resultado = 0.0;
+                    if (operador == Operador.SUMA)
+                        resultado = operando + operando2;
+                    else if (operador == Operador.RESTA)
+                        resultado = operando - operando2;
+                    else if (operador == Operador.MULTIPLICACION)
+                        resultado = operando * operando2;
+                    else if (operador == Operador.DIVISION) {
+                        if (operando2 == 0) {
+                            Toast.makeText(context, "RESULTADO = INFINITO", Toast.LENGTH_LONG).show();
+                            resultado = 0.0;
+                        } else
+                            resultado = operando / operando2;
+                    }
+                    display.setText(resultado.toString());
             }
         });
 
@@ -168,6 +172,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
 
         if (savedInstanceState!=null){
             display.setText(savedInstanceState.getString("display"));
